@@ -4,31 +4,38 @@ function onButtonTapTurnFlashlightOn() {
     lightBulbOn = true;
 }
 
-//¿Qué indicará console.log cuando se llame a esta función?
-function myBirthYearFunc() {
-    console.log("Nací en " + 1980);
+function onButtonTapTurnFlashlightOn() {
+    if (light.bulb == true) {
+        light.bulb = false;
+    }
+    else {
+        light.bulb = true;
+    }
 }
 
-// Nací en 1980
 
 
-//si necesitáramos enviar un año de nacimiento hacia la función, le diríamos a la función "oye, te enviaremos una variable llamada EntradaAñoNacimiento". Lo hacemos agregando el nombre de la variable entre paréntesis. Mira a continuación un ejemplo. 
-
-//Entonces, si la variable EntradaAñoNacimiento es 1980 (también conocida como var EntradaAñoNacimiento = 1980), y se llama a esta función, ¿qué indicará console.log?
-function myBirthYearFunc(EntradaAñoNacimiento) {
-    console.log("Nací en " + EntradaAñoNacimiento);
+function muestraInformaciónContacto() {
+    var auntContactInfo = ["Paula", "Smith", "Calle Principal 1234", "St. Louis", "MO", 12345];
+    console.log(auntContactInfo);
 }
- // Nací en
 
-
-//Intentémoslo otra vez. Si var num1 = 10 y var num2 = 20, ¿qué indicaría console.log?
-function add(num1, num2) {
-    console.log("¡Sumando números!");
-    console.log("num1 is: " + num1);
-    console.log("num2 is: " + num2);
-    var sum = num1 + num2;
-    console.log(sum);
+function muestraListaDeCompras() {
+    var produce = ["manzanas", "naranjas"];
+    var frozen = ["brócoli", "helado"];
+    frozen.push("croqueta de papa");
+    console.log(frozen);
 }
-// 30
 
+
+var movieLibrary = ["Bambi", "E.T.", "Toy Story"];
+movieLibrary.push("Zoro");
+movieLibrary[1] = "Beetlejuice";
+console.log(movieLibrary);
+
+function createArray() {
+    var newArray = [0, 1, 2, 3, 4, 5];
+    return newArray;        // agregó la sentencia return
+}
+var needAnArray = createArray();        // ahora needAnArray es la variable que llama a createArray
 
