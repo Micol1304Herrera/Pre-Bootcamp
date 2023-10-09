@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avión</title>
+    <style type="text/css">
+        #ocean {
+            background-image: url(/avion/img/outerspace-40.gif);
+            width: 896px;
+            height: 700px;
+        }
+
+        .player {
+            position: absolute;
+            background-image: url(/avion/img/player1.png);
+            width: 60px;
+            height: 65px;
+        }
+
+        .enemy {
+            position: absolute;
+            background-image: url(/avion/img/enemi1.png);
+            width: 60px;
+            height: 65px;
+        }
+
+        .missile {
+            position: absolute;
+            background-color: rgb(68, 0, 255); /* Cambia el color de fondo a tu elección */
+            width: 5px; /* Ancho de los misiles */
+            height: 20px; /* Alto de los misiles */
+        }
+    </style>
+</head>
+<body>
+    <div id="ocean">
+        <div id="player"></div>
+        <div id="enemies"></div>
+        <div id="missiles"></div>
+    </div>
+
+    <script type="text/javascript">
+        var player = {
+            left: 450,
+            top: 620,
+        }
+
+        var enemies = [];
+
+        var maxEnemies = 5; // Límite de enemigos
+
+        var missiles = [];
+
+        function drawPlayer() {
+            var content = "<div class='player' style='left:"+player.left+ "px; top:"+player.top+"px'></div>";
+            document.getElementById("player").innerHTML = content;
+        }
+
+        function drawEnemies() {
+            var content = "";
+            for (var idx = 0; idx < enemies.length; idx++) {
+                content += "<div class='enemy' style='left:"+enemies[idx].left+"px; top:"+enemies[idx].top+"px'></div>";
+            }
+            document.getElementById("enemies").innerHTML = content;
+        }
+
+        function drawMissiles() {
+            var content = "";
+            for (var idx = 0; idx < missiles.length; idx++) {
+                content += "<div class='missile' style='left:"+missiles[idx].left+"px; top:"+missiles[idx].top+"px'></div>";
+            }
+            document.getElementById("missiles").innerHTML = content;
+        }
+
+        function generateEnemy() {
+            if (enemies.length < maxEnemies) {
+                // Generar un nuevo enemigo
+                var newEnemy = {
+                    left: Math.floor(Math.random() * 800), // Posición horizontal aleatoria
+                    top: -60, // Inicia fuera de la pantalla superior
+                };
+                enemies.push(newEnemy);
+            }
+        }
+
+        document.onkeydown = function (e) {
+            if (e.keyCode == 37 && player.left > 10) { // left
+                player.left -= 10;
+            }
+            if (e.keyCode == 39 && player.left < 740) { // right
+                player.left += 10;
+            }
+            if (e.keyCode == 38 && player.top > 400) { // up
+                player.top -= 10;
+            }
+            if (e.keyCode == 40 && player.top < 620) { // down
+                player.top += 10;
+            }
+            if (e.keyCode == 32) { // fire
+                missiles.push({left: player.left + 34, top: player.top - 8});
+            }
+
+            drawPlayer();
+        }
+
+        function moveEnemies() {
+            for (var idx = 0; idx < enemies.length; idx++) {
+                // Mover enemigos hacia abajo
+                enemies[idx].top += 10;
+
+                // Si un enemigo se mueve fuera de la pantalla, reiniciar su posición
+                if (enemies[idx].top > 700) {
+                    enemies[idx].top = -60; // Fuera de la pantalla superior
+                    enemies[idx].left = Math.floor(Math.random() * 800); // Nueva posición horizontal aleatoria
+                }
+            }
+        }
+
+        function moveMissiles() {
+            for (var idx = 0; idx < missiles.length; idx++) {
+                missiles[idx].top -= 10; // Aumenta la velocidad cambiando el valor aquí
+            }
+        }
+
+        function gameLoop() {
+            console.log("gameLoop is running!");
+
+            drawPlayer();
+            generateEnemy(); // Generar nuevos enemigos
+            moveEnemies();
+            drawEnemies();
+            moveMissiles();
+            drawMissiles();
+
+            setTimeout(gameLoop, 50); // Ajustar el tiempo de espera para mayor fluidez
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>
