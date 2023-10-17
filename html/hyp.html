@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>                   <!-- Padre -->
+    <head>               <!--   Hijo de <html> -->
+        <title>          <!--     Hijo de <head> -->
+            Basic II     <!--     Texto de <title> -->
+        </title>
+    </head>
+    <body>               <!--   Hijo de <html> -->
+        <table>           <!--     Hijo de <body> -->
+            <thead>       <!--       Hijo de <table> -->
+                <tr>      <!--         Hijo de <thead> -->
+                    <th>Nombre</th>     <!--           Hijo de <tr> (hermano de <th>Apellido</th>) -->
+                    <th>Apellido</th>   <!--           Hijo de <tr> (hermano de <th>Nombre</th>) -->
+                    <th>Email</th>      <!--           Hijo de <tr> (hermano de <th>Password</th>) -->
+                    <th>Password</th>   <!--           Hijo de <tr> (hermano de <th>Email</th>) -->
+                </tr>
+            </thead>
+            <tbody>       <!--       Hijo de <table> -->
+                <tr>      <!--         Hijo de <tbody> -->
+                    <td>Sadie</td>            <!--           Hijo de <tr> (hermano de <td>Valerio</td>) -->
+                    <td>Valerio</td>          <!--           Hijo de <tr> (hermano de <td>sadierocks@gmail.com</td>) -->
+                    <td>sadierocks@gmail.com</td> <!--           Hijo de <tr> (hermano de <td>FakePassword123</td>) -->
+                    <td>FakePassword123</td>  <!--           Hijo de <tr> (hermano de <td>sadierocks@gmail.com</td>) -->
+                </tr>
+            </tbody>
+        </table>
+        <h1>Esta es una lista de mis cosas favoritas:</h1> <!--     Hijo de <body> (hermano de <table>) -->
+        <ul>            <!--     Hijo de <body> (hermano de <table>) -->
+            <li>Comida</li> <!--       Hijo de <ul> (hermano de <li>Gatos</li>) -->
+            <li>Gatos</li>  <!--       Hijo de <ul> (hermano de <li>Café</li>) -->
+            <li>Café</li>   <!--       Hijo de <ul> (hermano de <li>Música</li>) -->
+            <li>Música</li> <!--       Hijo de <ul> (hermano de los otros <li>) -->
+        </ul>
+    </body>
+</html>

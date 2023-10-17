@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/formulario/style.css">
+</head>    
+<body>
+    <h1>Mi Formulario de Registro</h1>
+    <form action="/crearusuario" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+
+        <label for="confirmar_contrasena">Confirmar Contraseña:</label>
+        <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required><br><br>
+
+        <label for="cumpleanos">Cumpleaños:</label>
+        <input type="date" id="cumpleanos" name="cumpleanos" required><br><br>
+
+        <label for="sexo">Sexo:</label>
+        <input type="radio" id="masculino" name="sexo" value="Masculino"> Masculino
+        <input type="radio" id="femenino" name="sexo" value="Femenino"> Femenino<br><br>
+
+        <label for="descripcion">Breve Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea><br><br>
+
+        <label for="lenguaje_favorito">Lenguaje Favorito:</label>
+        <select id="lenguaje_favorito" name="lenguaje_favorito">
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
